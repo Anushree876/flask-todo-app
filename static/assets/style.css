@@ -1,0 +1,67 @@
+body{
+    
+
+  background: linear-gradient(-45deg, #5BBCFF, #FFFAB7, #FFD1E3, #7EA1FF);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.b-example-divider {
+    height: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid rgba(0, 0, 0, 0.15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+                inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+  }
+  /* body {
+  background: linear-gradient(135deg, #C5705D, #DFD3C3);
+  height: 100vh;
+  margin: 0;
+} */
+
+.card{
+  background-color: #D4C9BE;
+border-radius: 25px;
+}
+
+.logout_btn{
+  border-radius: 50%;
+}
+.card-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-body::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+textarea {
+   padding-top: 40%;    
+  
+}
+
+
+
+.font{
+  font-family:Indie Flower;
+  font-weight : 800
+}
+.font-heading{
+  font-family: Delicious Handrawn;
+  font-size:4rem;
+  font-weight: bold;
+  color:black
+}
+  

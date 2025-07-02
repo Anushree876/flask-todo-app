@@ -1,0 +1,49 @@
+<!-- Modal Trigger Button (already included in modal template) -->
+ <link href="/static/assets/style.css" rel="stylesheet">
+<button type="button" class="btn btn-outline-primary me-2 font" data-bs-toggle="modal" data-bs-target="#loginModal">
+  Login
+</button>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="POST" action="{{ url_for('login') }}">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="loginModalLabel">
+            <i class="bi bi-box-arrow-in-right me-2 font"></i> Login
+          </h5>
+          <button type="button" class="btn-close font" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="container mt-3">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show font" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close font" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label font">Email</label>
+            <input type="text" name="email" class="form-control font" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label font">Password</label>
+            <input type="password" name="password" class="form-control font" id="password" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success w-100 font">
+            <i class="bi bi-box-arrow-in-right me-1  font"></i> Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<!-- Modal Trigger Button -->
+<link href="/static/assets/style.css" rel="stylesheet">
+<button type="button" class="btn btn-primary font" data-bs-toggle="modal" data-bs-target="#signupModal">
+    Sign Up
+</button>
+ 
+<!-- Sign Up Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="{{ url_for('signup') }}">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="signupModalLabel">
+                        <i class="bi bi-person-plus me-2 font"></i> Sign Up
+                    </h5>
+                    <button type="button" class="btn-close font" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                {% with messages = get_flashed_messages(with_categories=true)%}
+                {%if messages%}
+                {%for message in messages%}
+                <div class="alert alert-{{ category }} alert-dismissible fade show font" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close font" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {%endfor%}
+                {%endif%}
+                {%endwith%}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="signup-username" class="form-label font">Username</label>
+                        <input type="text" name="username" class="form-control font" id="signup-username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signup-email" class="form-label font">Email</label>
+                        <input type="email" name="email" class="form-control font" id="signup-email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signup-password" class="form-label font">Password</label>
+                        <input type="password" name="password" class="form-control font" id="signup-password" required>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary w-100 font">
+                        <i class="bi bi-person-plus"></i> Create Account
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

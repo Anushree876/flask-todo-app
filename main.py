@@ -5,15 +5,19 @@ from sqlalchemy import Integer, String, Float,ForeignKey
 from datetime import datetime
 from flask_login import login_user,LoginManager,logout_user,login_required,UserMixin,current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from dotenv import load_dotenv
+import os
 # from forms import TaskForm
+
+load_dotenv()
 
 app=Flask(__name__)
 
 class Base(DeclarativeBase):
     pass
-app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///tasks.db"
-app.config["SECRET_KEY"]="this_is_a_todo_list_app"
+
+app.config["SECRET_KEY"]=os.getenv("FLASK_SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"]=os.getenv("DATABASE_URL")
 db=SQLAlchemy(model_class=Base)
 db.init_app(app)
 
